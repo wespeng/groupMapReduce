@@ -1,0 +1,25 @@
+If you were familiar with Apache Spark, there are some array methods Spark and Scala have, but Ruby doesn't implement.
+
+I make the expansion for ruby array for adding these methods:
+
+  1. reduceByKey
+  2. mapValues
+  3. countByKey
+  4. groupByKey
+  5. sortByKey
+  6. fold
+
+Here is the sample code:
+
+  require './groupMapReduce.rb'
+
+  list = [["a",1], ["c",3], ["b",4], ["a",5]]
+
+  p list.reduceByKey { |x,y| x+y }
+  p list.mapValues { |x| x**2 }
+
+The output:
+
+  [["a", 6], ["c", 3], ["b", 4]]
+  [["a", 1], ["c", 9], ["b", 16], ["a", 25]]
+
